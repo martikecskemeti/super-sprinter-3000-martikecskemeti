@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Super Sprinter 3000 </title>
+</head>
+
+<body>
+    <h1>User Story Manager</h1>
+    <p> <a href="{{ url_for('story') }}"><button type="button" style="font-size : 20px; cursor:pointer;"">Add Story</button></a></p>
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <td>Story Title</td>
+            <td>User Story</td>
+            <td>Acceptance Criteria</td>
+            <td>Business Value</td>
+            <td>Estimation</td>
+            <td>Status</td>
+            <td>Edit user story</td>
+            <td>Delete user story</td>
+        </tr>
+        {% if user_stories %} {% for story in user_stories %}
+        <tr>
+            <td>{{story.id}}</td>
+            <td>{{story.story_title}}</td>
+            <td>{{story.user_story}}</td>
+            <td>{{story.accept_criteria}}</td>
+            <td>{{story.business_value}}</td>
+            <td>{{story.estimation}}</td>
+            <td>{{story.status}}</td>
+            <td><a href="{{ url_for('story') }}/{{story.id}}"><button type="button" style="font-size : 40px; width: 100%; height: 50px; cursor:pointer;"> &#10000;</button></a></button>
+                </a>
+            </td>
+            <td><a href="{{ url_for('story') }}/{{story.id}}/delete"><button type="button" style="font-size : 40px; width: 100%; height: 50px; cursor:pointer";>&#128465;</button></a></td>
+        </tr>
+        {% endfor %} {% endif %}
+    </table>
+</body>
+
+</html>
